@@ -7,7 +7,7 @@ const nonUsersRouter = require("./routes/nonUsersRouter.js");
 const server = express();
 
 server.use(helm(), express.json(), morg("dev"));
-server.use("/api/login", nonUsersRouter);
+server.use("/api", nonUsersRouter);
 server.use("/api/users", usersRouter);
 
 server.get("/", (req, res) => {

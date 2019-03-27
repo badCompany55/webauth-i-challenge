@@ -4,6 +4,7 @@ exports.up = function(knex, Promise) {
     tb.string("use_name", 128)
       .notNullable()
       .unique();
+    tb.string("pass_word").notNullable();
   });
 };
 

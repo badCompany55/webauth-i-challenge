@@ -19,7 +19,15 @@ router.post("/registar", async (req, res) => {
       const user = await db.add_user(credentials);
       res.status(201).json(user);
     } catch (err) {
-      res.status(500).json(err);
+      if ((err.errno = 19)) {
+        res
+          .status(400)
+          .json({
+            Error: "The username has already been taken. Please try another"
+          });
+      } else {
+        res.status(500).json(err);
+      }
     }
   } else {
     res.status(400).json({ Error: "Name and password are reqired" });

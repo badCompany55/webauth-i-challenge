@@ -5,6 +5,5 @@ module.exports = {
 };
 
 function add_user(user) {
-  console.log(user);
   return db("users").insert(user);
 }
